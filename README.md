@@ -22,11 +22,31 @@ The application uses a state machine graph structure with these key components:
 - `paper_retriever`: Fetches relevant research papers
 - `enhanced_response_node`: Provides detailed paper responses
 - `summarizer`: Creates conversation summaries when needed
+  
+```mermaid
+flowchart TD
+    A["START"] --> B("call_model")
+    B -- Router Logic Evaluates State --> C{"router"}
+    C -- len(messages) > 10 --> D("summarizer")
+    D -- Loops back after summarizing --> B
+    C -- Keyword match in last message --> E("paper_retriever")
+    E -- After paper retrieval --> F("enhanced_response_node")
+    F -- After enhanced response --> G["END"]
+    C -- Default: No other conditions met --> G
 
-<img
-  src="https://www.mermaidchart.com/raw/0e7bd2a3-0586-47da-9638-f15e97c2e591?theme=light&version=v0.1&format=svg"
-  alt="Mermaid Diagram"
-/>
+     A:::specialNodeStyle
+     B:::processNodeStyle
+     C:::routerStyle
+     D:::processNodeStyle
+     E:::processNodeStyle
+     F:::processNodeStyle
+     G:::specialNodeStyle
+    classDef nodeStyle fill:#f9f,stroke:#333,stroke-width:2px
+    classDef processNodeStyle fill:#lightgrey,stroke:#333,stroke-width:2px
+    classDef specialNodeStyle fill:#orange,stroke:#333,stroke-width:2px
+    classDef routerStyle fill:#lightblue,stroke:#333,stroke-width:2px
+
+```
 
 
 
