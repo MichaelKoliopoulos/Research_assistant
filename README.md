@@ -23,5 +23,6 @@ The application uses a state machine graph structure with these key components:
 - `enhanced_response_node`: Provides detailed paper responses
 - `summarizer`: Creates conversation summaries when needed
 
-![Mermaid Diagram](https://www.mermaidchart.com/raw/0e7bd2a3-0586-47da-9638-f15e97c2e591?theme=light&version=v0.1&format=svg)
+![Mermaid Diagram](<https://www.mermaidchart.com/raw/0e7bd2a3-0586-47da-9638-f15e97c2e591?theme=light&version=v0.1&format=svg>)
+
 
